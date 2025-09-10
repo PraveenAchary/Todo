@@ -15,11 +15,6 @@ It supports user authentication (signup/login/logout) and lets users add, edit, 
 
 ---
 
-## 📸 Screenshots
-
-*You can add screenshots here if needed (e.g., login page, task list, etc.)*
-
----
 
 ## 🛠️ Tech Stack
 
