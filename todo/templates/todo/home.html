@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home : To-Do</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-primary">Hi, {{ user.username }}</h2>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Log Out</a>
+        </div>
+
+        <div class="mb-3">
+            <a href="{% url 'addtask' %}" class="btn btn-success">+ Add Task</a>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Your Tasks</h4>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover table-bordered mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Date Added</th>
+                            <th>Task</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if data %}
+                            {% for i in data %}
+                                <tr>
+                                    <td>{{ i.date }}</td>
+                                    <td>{{ i.taskname }}</td>
+                                    <td>
+                                        <a href="{% url 'edittask' i.id %}" class="btn btn-sm btn-warning">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'deletetask' i.id %}" class="btn btn-sm btn-danger">Delete</a>
+                                    </td>
+                                    <td>{{ i.deadline }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">
+                                    No tasks yet. Add one above!
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
