@@ -1,4 +1,4 @@
-# Django Task Manager 📝
+# Django Todo-Application 📝
 
 A simple task management web application built using Django.  
 It supports user authentication (signup/login/logout) and lets users add, edit, and delete their own tasks with deadlines.
