@@ -8,6 +8,10 @@ from .models import Tasks
 from django.shortcuts import get_object_or_404
 
 
+def signup_view2(request):
+    return render(request,"index.html")
+
+    
 def signup_view(request):
     if(request.method=='POST'):
         uname = request.POST.get('uname')
